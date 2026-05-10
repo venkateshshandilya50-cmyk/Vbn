@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry Bestie 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ffd6e7,#ff8fb1);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    position:relative;
+}
+
+.container{
+    text-align:center;
+    z-index:5;
+    padding:20px;
+    max-width:750px;
+}
+
+.bear{
+    font-size:85px;
+    animation:bounce 2s infinite ease-in-out;
+    margin-bottom:15px;
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-18px);
+    }
+}
+
+h1{
+    font-family:'Dancing Script',cursive;
+    font-size:clamp(42px,7vw,82px);
+    line-height:1.2;
+    text-shadow:0 5px 12px rgba(0,0,0,0.2);
+}
+
+.subtitle{
+    margin-top:20px;
+    font-size:20px;
+    font-style:italic;
+}
+
+.closing{
+    margin-top:35px;
+    font-size:18px;
+    font-weight:500;
+}
+
+.button-row{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    margin-top:40px;
+    flex-wrap:wrap;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    transition:0.3s;
+    font-family:'Poppins',sans-serif;
+}
+
+/* Forgive Button */
+
+.yes-btn{
+    padding:18px 42px;
+    border-radius:999px;
+    background:linear-gradient(135deg,#ff1744,#ff5f7d);
+    color:white;
+    font-size:22px;
+    font-weight:700;
+    box-shadow:0 0 20px rgba(255,0,80,0.5);
+}
+
+.yes-btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 28px rgba(255,0,80,0.8);
+}
+
+/* Angry Button */
+
+.no-btn{
+    padding:12px 28px;
+    border-radius:999px;
+    background:white;
+    color:#ff1744;
+    border:2px solid #ff1744;
+    font-size:18px;
+    font-weight:600;
+    position:relative;
+}
+
+/* Floating Hearts */
+
+.hearts{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    animation:float linear infinite;
+    opacity:0;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+    }
+    90%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* Celebration */
+
+.celebration{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    background:linear-gradient(135deg,#ff7aa2,#ff2e63);
+    z-index:20;
+    overflow:hidden;
+}
+
+.celebration h2{
+    font-family:'Dancing Script',cursive;
+    font-size:clamp(60px,10vw,120px);
+    animation:pulse 1s infinite;
+}
+
+.celebrate-emoji{
+    font-size:90px;
+    margin:20px 0;
+    animation:spin 3s linear infinite;
+}
+
+.celebration p{
+    font-size:25px;
+    padding:0 20px;
+    max-width:700px;
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* Confetti */
+
+.confetti{
+    position:absolute;
+    width:12px;
+    height:12px;
+    top:-20px;
+    opacity:0.9;
+    animation:confettiFall linear forwards;
+}
+
+@keyframes confettiFall{
+    to{
+        transform:translateY(120vh) rotate(720deg);
+        opacity:1;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Floating Hearts -->
+<div class="hearts" id="hearts"></div>
+
+<!-- Main Content -->
+
+<div class="container" id="mainContent">
+
+    <div class="bear">🧸</div>
+
+    <h1>
+        Sorry Bestie 💖
+    </h1>
+
+    <div class="subtitle">
+        "Galti ho gayi meri maa... please ab mujhse naraz mat ho mummy 🥺"
+    </div>
+
+    <div class="button-row">
+
+        <button class="yes-btn" id="yesBtn">
+            Maaf Kiya ❤️
+        </button>
+
+        <button class="no-btn" id="noBtn">
+            Still Angry 😒
+        </button>
+
+    </div>
+
+    <div class="closing">
+        Aap meri bestie ho... aur sabse special bhi 💕
+    </div>
+
+</div>
+
+<!-- Celebration -->
+
+<div class="celebration" id="celebration">
+
+    <h2>Yayyyy!! 💖</h2>
+
+    <div class="celebrate-emoji">🥹✨</div>
+
+    <p>
+        Thank you mummy... ab kabhi hurt nahi karunga 💕
+    </p>
+
+</div>
+
+<script>
+
+const heartsContainer = document.getElementById("hearts");
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const celebration = document.getElementById("celebration");
+const mainContent = document.getElementById("mainContent");
+
+const messages = [
+    "Soch lo 😭",
+    "Please maan jao 🥺",
+    "Itna bhi gussa? 😭",
+    "Bestie plssss 💖",
+    "Ek baar aur socho 😭"
+];
+
+let msgIndex = 0;
+
+/* Floating Hearts */
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML = "💖";
+
+    const size = Math.random() * 30 + 15;
+    const left = Math.random() * 100;
+    const duration = Math.random() * 6 + 5;
+    const delay = Math.random() * 5;
+
+    heart.style.left = left + "vw";
+    heart.style.fontSize = size + "px";
+    heart.style.animationDuration = duration + "s";
+    heart.style.animationDelay = delay + "s";
+
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, (duration + delay) * 1000);
+}
+
+let heartInterval = setInterval(() => {
+    createHeart();
+}, 300);
+
+for(let i=0;i<15;i++){
+    createHeart();
+}
+
+/* Move Angry Button */
+
+function moveNoButton(){
+
+    const yesRect = yesBtn.getBoundingClientRect();
+
+    const exclusion = {
+        left: yesRect.left - 120,
+        right: yesRect.right + 120,
+        top: yesRect.top - 120,
+        bottom: yesRect.bottom + 120
+    };
+
+    let randomX, randomY;
+    let valid = false;
+
+    while(!valid){
+
+        randomX = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+
+        randomY = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+        const overlaps =
+            randomX < exclusion.right &&
+            randomX + noBtn.offsetWidth > exclusion.left &&
+            randomY < exclusion.bottom &&
+            randomY + noBtn.offsetHeight > exclusion.top;
+
+        if(!overlaps){
+            valid = true;
+        }
+    }
+
+    noBtn.style.position = "fixed";
+
+    noBtn.style.left = randomX + "px";
+
+    noBtn.style.top = randomY + "px";
+
+    noBtn.textContent = messages[msgIndex];
+
+    msgIndex = (msgIndex + 1) % messages.length;
+}
+
+/* Desktop Hover */
+
+noBtn.addEventListener("mouseenter", moveNoButton);
+
+/* Mobile Touch */
+
+noBtn.addEventListener("touchstart", (e)=>{
+
+    e.preventDefault();
+
+    moveNoButton();
+
+});
+
+/* Mobile Nearby Escape */
+
+document.addEventListener("touchmove", (e)=>{
+
+    const touch = e.touches[0];
+
+    const rect = noBtn.getBoundingClientRect();
+
+    const distanceX =
+        Math.abs(touch.clientX - (rect.left + rect.width/2));
+
+    const distanceY =
+        Math.abs(touch.clientY - (rect.top + rect.height/2));
+
+    if(distanceX < 80 && distanceY < 80){
+
+        moveNoButton();
+
+    }
+
+});
+
+/* Forgive Button */
+
+yesBtn.addEventListener("click", ()=>{
+
+    mainContent.style.display = "none";
+
+    clearInterval(heartInterval);
+
+    heartsContainer.innerHTML = "";
+
+    celebration.style.display = "flex";
+
+    createConfetti();
+
+});
+
+/* Confetti */
+
+function createConfetti(){
+
+    const colors = [
+        "#ff1744",
+        "#ffea00",
+        "#00e5ff",
+        "#76ff03",
+        "#ffffff",
+        "#ff80ab",
+        "#ff9100"
+    ];
+
+    for(let i=0;i<120;i++){
+
+        const confetti = document.createElement("div");
+
+        confetti.classList.add("confetti");
+
+        confetti.style.left = Math.random() * 100 + "vw";
+
+        confetti.style.background =
+            colors[Math.floor(Math.random()*colors.length)];
+
+        confetti.style.width =
+            Math.random() * 10 + 6 + "px";
+
+        confetti.style.height =
+            Math.random() * 14 + 8 + "px";
+
+        confetti.style.animationDuration =
+            Math.random() * 3 + 2 + "s";
+
+        confetti.style.transform =
+            `rotate(${Math.random()*360}deg)`;
+
+        celebration.appendChild(confetti);
+    }
+}
+
+</script>
+
+</body>
+</html>
